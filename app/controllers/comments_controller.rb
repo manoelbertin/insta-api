@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[ show update destroy ]
+  before_action :load
+  before_action :load_comment, only: %i[ show update destroy ]
 
   # GET /comments
   def index
@@ -40,7 +41,7 @@ class CommentsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_comment
+    def load_comment
       @comment = Comment.find(params[:id])
     end
 
