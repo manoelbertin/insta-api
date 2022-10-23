@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :load
+  before_action :load_post
   before_action :load_comment, only: %i[ show update destroy ]
 
   # GET /comments
@@ -45,6 +45,10 @@ class CommentsController < ApplicationController
       @comment = Comment.find(params[:id])
     end
 
+    def load_post
+      @comment = Comment.find(params[:post_id])
+    end
+    
     # Only allow a list of trusted parameters through.
     def comment_params
       params.permit(:post_id, :author, :content)
