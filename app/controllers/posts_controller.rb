@@ -2,13 +2,13 @@ class PostsController < ApplicationController
   def index 
     @posts = Post.order(created_at: :desc)
     
-    # render json: {message: 'Yahoo'}
     render json: @posts
   end
 
   def show 
-    # render json: @comment
     @post = Post.find params[:id]
+
+    render json: @post
   end
 
   def create 
@@ -29,6 +29,13 @@ class PostsController < ApplicationController
     else
       render json: @post.erros, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @post = Post.find params[:id]
+    @post.destroy
+
+    head :ok
   end
 
   private 
