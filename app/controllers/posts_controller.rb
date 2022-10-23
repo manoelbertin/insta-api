@@ -7,7 +7,8 @@ class PostsController < ApplicationController
   end
 
   def show 
-    render json: @comment
+    # render json: @comment
+    @post = Post.find params[:id]
   end
 
   def create 
