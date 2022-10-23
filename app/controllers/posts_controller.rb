@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   def show 
     render json: @comment
   end
-  
+
   def create 
     @post = Post.new post_params
 
@@ -20,6 +20,15 @@ class PostsController < ApplicationController
     end
   end
 
+  def update 
+    @post = Post.find params[:id]
+
+    if @post.update post_params
+      render json: @post
+    else
+      render json: @post.erros, status: :unprocessable_entity
+    end
+  end
 
   private 
 
