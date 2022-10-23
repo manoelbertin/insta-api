@@ -6,6 +6,10 @@ class PostsController < ApplicationController
     render json: @posts
   end
 
+  def show 
+    render json: @comment
+  end
+  
   def create 
     @post = Post.new post_params
 
@@ -15,6 +19,7 @@ class PostsController < ApplicationController
       render json: @post.erros, status: :unprocessable_entity
     end
   end
+
 
   private 
 
