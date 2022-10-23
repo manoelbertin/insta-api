@@ -46,7 +46,7 @@ class CommentsController < ApplicationController
     end
 
     def load_post
-      @comment = Comment.find(params[:post_id])
+      @post = Post.find(params[:post_id])
     end
     
     # Only allow a list of trusted parameters through.
