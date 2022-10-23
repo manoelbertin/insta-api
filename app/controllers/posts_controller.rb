@@ -7,12 +7,18 @@ class PostsController < ApplicationController
   end
 
   def create 
-    @post = Post.new # parametros
+    @post = Post.new post_params
 
     if @post.save 
       render json: @post, status: :created 
     else
       render json: @post.erros, status: :unprocessable_entity
     end
+  end
+
+  private 
+
+  def post_params
+    
   end
 end
