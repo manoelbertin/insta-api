@@ -17,7 +17,7 @@ class PostsController < ApplicationController
     if @post.save 
       render json: @post, status: :created 
     else
-      render json: @post.erros, status: :unprocessable_entity
+      render json: @post.errors, status: :unprocessable_entity
     end
   end
 
@@ -25,7 +25,7 @@ class PostsController < ApplicationController
     @post = Post.find params[:id]
 
     if @post.update post_params
-      render json: @post
+      render json: @post 
     else
       render json: @post.erros, status: :unprocessable_entity
     end
