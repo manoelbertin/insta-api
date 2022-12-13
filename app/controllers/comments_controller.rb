@@ -4,7 +4,8 @@ class CommentsController < ApplicationController
 
   # GET /comments
   def index
-    @comments = @post.comments
+    #@comments = @post.comments
+    @comments = Comment.all
 
     render json: @comments
   end
