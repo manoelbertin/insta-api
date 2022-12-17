@@ -1,6 +1,8 @@
 class V1::UsersController < ApplicationController
   def show
-    render json: User.find(params[:id])
+    #render json: User.find(params[:id])
+    render json: User.all
+
   end
 
   def create
