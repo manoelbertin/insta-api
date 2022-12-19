@@ -1,7 +1,9 @@
 class V1::UsersController < ApplicationController
+  def index 
+  end
   def show
     #render json: User.find(params[:id])
-    render json: User.all
+    render json: User.order(:name)
 
   end
 
